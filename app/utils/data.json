@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Summer Sale",
+        "description": "Get up to 50% off on summer essentials!",
+        "cta": "Shop Now",
+        "image": "https://thumbs.dreamstime.com/z/business-woman-laptop-portrait-desk-blank-screen-web-designer-tech-office-professional-creative-agency-website-design-318322062.jpg?ct=jpeg",
+        "background": "https://t4.ftcdn.net/jpg/04/95/28/65/240_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg"
+    },
+    {
+        "id": 2,
+        "title": "New Arrivals",
+        "description": "Check out the latest additions to our collection.",
+        "cta": "Discover",
+        "image": "https://thumbs.dreamstime.com/z/business-woman-connecting-elements-success-puzzle-confident-strong-motivated-141893911.jpg?ct=jpeg",
+        "background": "https://t3.ftcdn.net/jpg/07/67/62/74/240_F_767627446_19l3ebv5qNEas0PzU95NMD9qTOYWfXrO.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Free Shipping",
+        "description": "Enjoy free shipping on orders over $50.",
+        "cta": "Learn More",
+        "image": "https://thumbs.dreamstime.com/z/businessman-using-tablet-laptop-analyzing-sales-data-economic-growth-graph-chart-business-strategy-digital-marketing-154742021.jpg?ct=jpeg",
+        "background": "https://t3.ftcdn.net/jpg/02/99/85/68/240_F_299856803_puLZLS93g4oO1ubZlIUgCeMLcIQITe08.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Back to School",
+        "description": "Everything you need for the new school year.",
+        "cta": "Shop Supplies",
+        "image": "https://thumbs.dreamstime.com/z/learning-sitting-using-laptop-three-young-students-outside-university-outdoors-learning-sitting-using-laptop-three-308296460.jpg?ct=jpeg",
+        "background": "https://t3.ftcdn.net/jpg/04/53/92/04/240_F_453920448_yMcff4E8ctdXQQegdaQ7WcXnHM3y3aMM.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Limited Time Offer",
+        "description": "Hurry up! Offer ends soon.",
+        "cta": "Grab Now",
+        "image": "https://thumbs.dreamstime.com/z/cute-dog-looking-laptop-glasses-computer-working-315990813.jpg?ct=jpeg",
+        "background": "https://t4.ftcdn.net/jpg/04/92/07/35/240_F_492073587_vcR7eaZSC9H8yIuRcJApAWwxa4XVvDoF.jpg"
+    }
+]
