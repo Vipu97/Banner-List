@@ -22,6 +22,10 @@ const fetchBanners = async (): Promise<BannerDetails[]> => {
 
 const Home: FC = async () => {
   const banners = await fetchBanners();
+  console.log(banners);
+  if(banners.length === 0){
+    return <h1>Banners is Empty</h1>
+  }
   return (
     <div className="overflow-hidden p-5">
       <main className="grid gird-cols-1 md:grid-cols-2 gap-3 w-full box-border">
