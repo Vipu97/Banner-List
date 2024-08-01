@@ -20,9 +20,10 @@ interface BannerDetails {
 interface EditBannerTemplateProps {
     bannerDetails: BannerDetails;
     setIsEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    fetchBanners: () => Promise<void>;
 }
 
-const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails, setIsEditOpen }) => {
+const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails, setIsEditOpen,fetchBanners }) => {
     const [bannerTitle, setBannerTitle] = useState<string>(bannerDetails.title);
     const [bannerDesc, setBannerDesc] = useState<string>(bannerDetails.description);
     const [selectedImage, setSelectedIamge] = useState<string>(bannerDetails.image);
@@ -56,7 +57,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
         try {
             await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/banner`, { id: bannerDetails._id, title: bannerTitle, description: bannerDesc, image: selectedImage });
             setIsEditOpen(false);
-            window.location.reload();
+            fetchBanners();
         } catch (err: any) {
             console.error(err.message);
             alert("Error while Saving banner");
@@ -73,7 +74,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
                 className="absolute inset-0 flex items-center h-[95vh] justify-center m-auto max-w-[520px] bg-white z-40 rounded-md bg-opacity-100 overflow-y-auto"
             >
                 <div className="flex flex-col w-full px-4 h-full">
-                    <div className="flex justify-between px-1 py-2 items-center">
+                    <div className="flex justify-between px-1 py-2 items-center mb-2">
                         <h1 className="text-gray text-xl">Edit Banner</h1>
                         <button onClick={() => setIsEditOpen(false)}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-7 text-gray">
@@ -125,7 +126,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
                                 onChange={(e) => setBannerDesc(e.target.value)}
                             />
                         </div>
-                        <button className='bg-slate-600 w-full py-2 text-white text-xl font-bold rounded-lg hover:bg-slate-700 relative top-4 mb-5' onClick={handleSaveBanner}>Done</button>
+                        <button className='bg-slate-600 w-full py-2 text-white text-xl font-bold rounded-lg hover:bg-slate-700' onClick={handleSaveBanner}>Done</button>
                     </div>
                 </div>
             </motion.div>

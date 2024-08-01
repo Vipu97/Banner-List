@@ -31,16 +31,17 @@ const BannerContainer: React.FC<BannerContainerProps> = ({ bannerDetails, setIsE
                 height={100}
                 quality={100}
                 unoptimized={true}
+                priority={true}
             />
             <div className="absolute top-0 left-0 w-full h-full flex justify-between z-10 bg-black bg-opacity-30 p-6">
                 <div className="text-center text-white bg-transparent flex flex-col gap-y-3 items-start justify-center">
                     <h1 className="text-4xl font-bold mb-2 bg-transparent">{title || bannerDetails.title}</h1>
-                    <p className="mb-4 bg-transparent text-lg text-left">{desc || bannerDetails.description}</p>
+                    <p className="mb-4 bg-transparent text-lg text-left flex-wrap">{desc || bannerDetails.description}</p>
                     <button className="bg-blue-600 hover:bg-blue-800 text-white py-2 px-5 rounded mt-5">
                         {bannerDetails.cta}
                     </button>
                 </div>
-                <div className='border rounded-t-[100px]'>
+                <div className='border rounded-t-[100px] shrink-0'>
                     <Image src={image || bannerDetails.image} alt="image" className='h-full w-56 object-cover rounded-t-[100px]' width={100} height={100} quality={90} unoptimized={true} />
                 </div>
             </div>
