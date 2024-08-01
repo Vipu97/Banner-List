@@ -26,7 +26,7 @@ const Home: FC = () => {
   return (
     <div className="overflow-hidden p-5">
       <main className="grid gird-cols-1 md:grid-cols-2 gap-3 w-full box-border">
-        {banners.map((bannerDetails: any, indx: number) => <BannerImageComp bannerDetails = {bannerDetails} fetchBanners={fetchBanners} setLoading={setLoading} /> )}
+        {banners.map((bannerDetails: any, indx: number) => <BannerImageComp bannerDetails = {bannerDetails} fetchBanners={fetchBanners} setLoading={setLoading} key={indx} /> )}
       </main>
     </div>
   );
