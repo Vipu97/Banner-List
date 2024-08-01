@@ -17,13 +17,14 @@ interface BannerDetails {
 interface BannerImageCompProps {
     bannerDetails: BannerDetails;
     fetchBanners: () => Promise<void>;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const BannerImageComp: React.FC<BannerImageCompProps> = ({ bannerDetails, fetchBanners }) => {
+const BannerImageComp: React.FC<BannerImageCompProps> = ({ bannerDetails, fetchBanners, setLoading }) => {
     const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
     return (
         <div key={bannerDetails.id}>
-            {isEditOpen && <EditBannerTemplateBs bannerDetails={bannerDetails} setIsEditOpen={setIsEditOpen} fetchBanners={fetchBanners} />}
+            {isEditOpen && <EditBannerTemplateBs bannerDetails={bannerDetails} setIsEditOpen={setIsEditOpen} fetchBanners={fetchBanners} setLoading={setLoading} />}
             <BannerContainer bannerDetails={bannerDetails} setIsEditOpen = {setIsEditOpen} isPreviewMode={false} title={bannerDetails.title} desc={bannerDetails.description} image={bannerDetails.image} />
         </div>
     );

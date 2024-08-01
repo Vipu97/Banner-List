@@ -21,9 +21,10 @@ interface EditBannerTemplateProps {
     bannerDetails: BannerDetails;
     setIsEditOpen: React.Dispatch<React.SetStateAction<boolean>>;
     fetchBanners: () => Promise<void>;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails, setIsEditOpen,fetchBanners }) => {
+const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails, setIsEditOpen, fetchBanners, setLoading }) => {
     const [bannerTitle, setBannerTitle] = useState<string>(bannerDetails.title);
     const [bannerDesc, setBannerDesc] = useState<string>(bannerDetails.description);
     const [selectedImage, setSelectedIamge] = useState<string>(bannerDetails.image);
@@ -55,12 +56,15 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
 
     const handleSaveBanner = async () => {
         try {
+            setLoading(true);
             await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/banner`, { id: bannerDetails._id, title: bannerTitle, description: bannerDesc, image: selectedImage });
             setIsEditOpen(false);
             fetchBanners();
         } catch (err: any) {
             console.error(err.message);
             alert("Error while Saving banner");
+        }finally{
+            setLoading(false);
         }
     };
 
