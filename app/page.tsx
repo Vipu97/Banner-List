@@ -22,7 +22,6 @@ const fetchBanners = async (): Promise<BannerDetails[]> => {
 
 const Home: FC = async () => {
   const banners = await fetchBanners();
-  console.log(banners);
   if(banners.length === 0){
     return <h1>Banners is Empty</h1>
   }
