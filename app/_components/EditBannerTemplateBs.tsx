@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import React, { useState, useRef } from 'react';
 import BannerContainer from './BannerContainer';
-import images from "../utils/images.json";
+import images from "../_utils/images.json";
 import axios from "axios";
 import Image from 'next/image';
 

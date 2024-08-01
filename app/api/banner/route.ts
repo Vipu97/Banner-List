@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { connectToDataBase } from "../../config/db";
-import Banner from "../../models/banner";
+import { connectToDataBase } from "../../_config/db";
+import Banner from "../../_models/banner";
 
 export async function PUT(req: NextRequest){
     try{
