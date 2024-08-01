@@ -12,7 +12,7 @@ interface BannerDetails {
 
 const fetchBanners = async (): Promise<BannerDetails[]> => {
   try {
-    const {data} = await axios.get("http://localhost:3000/api/banner");
+    const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/banner`);
     return data;
   } catch (err) {
     console.error(err);

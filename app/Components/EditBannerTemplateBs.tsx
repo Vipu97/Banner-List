@@ -54,7 +54,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
 
     const handleSaveBanner = async () => {
         try {
-            await axios.put("http://localhost:3000/api/banner", { id: bannerDetails._id, title: bannerTitle, description: bannerDesc, image: selectedImage });
+            await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/banner`, { id: bannerDetails._id, title: bannerTitle, description: bannerDesc, image: selectedImage });
             setIsEditOpen(false);
             window.location.reload();
         } catch (err: any) {
