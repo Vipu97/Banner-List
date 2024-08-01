@@ -9,7 +9,7 @@ export const connectToDataBase = async () => {
     return;
   }
   try {
-    await mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL as string);
     isConnected = true;
   } catch (error) {
     console.log(error);

@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import BannerContainer from './BannerContainer';
 import images from "../utils/images.json";
 import axios from "axios";
+import Image from 'next/image';
 
 interface BannerDetails {
     background: string;
@@ -34,7 +35,7 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
         }
     };
 
-    const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) : void => {
+    const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         try {
             const file = event.target.files?.[0];
             if (file) {
@@ -95,8 +96,14 @@ const EditBannerTemplateBs: React.FC<EditBannerTemplateProps> = ({ bannerDetails
                         </div>
                         {allImages.map((image: string, idx: number) => {
                             return (
-                                <img src={image} alt='example-image' key={idx} className={`w-14 h-14 rounded-full object-cover cursor-pointer hover:scale-105 ${selectedImage === image && 'border-[3px] border-red-500'}`}
-                                    onClick={() => setSelectedIamge(image)}
+                                <Image src={image} 
+                                alt='example-image' 
+                                key={idx} 
+                                width={100}
+                                height={100}
+                                quality={90}
+                                className={`w-14 h-14 rounded-full object-cover cursor-pointer hover:scale-105 ${selectedImage === image && 'border-[3px] border-red-500'}`}
+                                onClick={() => setSelectedIamge(image)}
                                 />
                             )
                         })}

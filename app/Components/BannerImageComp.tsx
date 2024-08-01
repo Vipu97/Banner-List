@@ -11,19 +11,21 @@ interface BannerDetails {
     cta: string;
     image: string;
     id: number;
+    _id: string,
 }
 
 interface BannerImageCompProps {
     bannerDetails: BannerDetails;
+    key: number;
 }
 
-const BannerImageComp: React.FC<BannerImageCompProps> = ({ bannerDetails }) => {
+const BannerImageComp: React.FC<BannerImageCompProps> = ({ bannerDetails, key }) => {
     const [isEditOpen, setIsEditOpen] = useState<boolean>(false);
     return (
-        <>
+        <div key={key}>
             {isEditOpen && <EditBannerTemplateBs bannerDetails={bannerDetails} setIsEditOpen={setIsEditOpen}  />}
-            <BannerContainer bannerDetails={bannerDetails} setIsEditOpen = {setIsEditOpen} isPreviewMode={false} />
-        </>
+            <BannerContainer bannerDetails={bannerDetails} setIsEditOpen = {setIsEditOpen} isPreviewMode={false} title={bannerDetails.title} desc={bannerDetails.description} image={bannerDetails.image} />
+        </div>
     );
 };
 

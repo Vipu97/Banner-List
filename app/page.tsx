@@ -25,8 +25,7 @@ const Home: FC = async () => {
   return (
     <div className="overflow-hidden p-5">
       <main className="grid gird-cols-1 md:grid-cols-2 gap-3 w-full box-border">
-        {banners.map((bannerDetails: any) => <BannerImageComp bannerDetails
-          ={bannerDetails} />)}
+        {banners.map((bannerDetails: any, indx: number) => <BannerImageComp bannerDetails = {bannerDetails} key={indx}/> )}
       </main>
 
     </div>

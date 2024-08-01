@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 interface BannerDetails {
     background: string;
@@ -19,13 +20,17 @@ interface BannerContainerProps {
     desc: string;
 }
 
-const BannerContainer: React.FC<BannerContainerProps> = ({ bannerDetails, setIsEditOpen,isPreviewMode, image,title,desc}) => {
+const BannerContainer: React.FC<BannerContainerProps> = ({ bannerDetails, setIsEditOpen, isPreviewMode, image, title, desc}) => {
     return (
         <div className={`relative h-80 w-full rounded-md object-cover ${isPreviewMode && "pointer-events-none"}`} key={bannerDetails.id}>
-            <img
+            <Image
                 src={bannerDetails.background}
                 alt="Banner Background"
-                className="z-0 w-full h-full object-cover rounded-md"
+                className="w-full h-full rounded-md object-cover"
+                width={80}
+                height={100}
+                quality={100}
+                unoptimized={true}
             />
             <div className="absolute top-0 left-0 w-full h-full flex justify-between z-10 bg-black bg-opacity-30 p-6">
                 <div className="text-center text-white bg-transparent flex flex-col gap-y-3 items-start justify-center">
@@ -36,7 +41,7 @@ const BannerContainer: React.FC<BannerContainerProps> = ({ bannerDetails, setIsE
                     </button>
                 </div>
                 <div className='border rounded-t-[100px]'>
-                    <img src={image || bannerDetails.image} alt="image" className='h-full w-56 object-cover rounded-t-[100px]' />
+                    <Image src={image || bannerDetails.image} alt="image" className='h-full w-56 object-cover rounded-t-[100px]' width={100} height={100} quality={90} unoptimized={true} />
                 </div>
             </div>
             <button className='absolute top-2 right-2 bg-transparent z-10 hover:scale-110 transition-all' onClick={() => setIsEditOpen(true)}>
